@@ -1,1 +1,15 @@
-<p>dashboard works!</p>
+<mat-sidenav-container
+    class="container" (backdropClick)="close('backdrop')" >
+  <mat-sidenav class="sidenav" #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">
+    <mat-icon aria-hidden="false"  aria-label="menu icon" fontIcon="close" class="close-icon"></mat-icon>
+    </button></p>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <nav>
+        <button mat-button (click)="sidenav.open()">
+    <mat-icon aria-hidden="false"  aria-label="menu icon" fontIcon="menu" class="menu-icon"></mat-icon>
+        </button></nav>
+  </mat-sidenav-content>
+</mat-sidenav-container>

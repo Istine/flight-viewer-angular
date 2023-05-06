@@ -9,7 +9,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+
 import { RouterModule, Routes } from '@angular/router';
+import { FlightsService } from './services/flights.service';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -23,12 +27,14 @@ const appRoutes: Routes = [
     BrowserAnimationsModule,
     MatFormFieldModule,
     FormsModule,
+    MatSidenavModule,
     MatInputModule,
     MatButtonModule,
+    MatIconModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [FlightsService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
