@@ -1,0 +1,21 @@
+form {
+  min-width: 300px;
+  max-width: 300px;
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+form p {
+  text-align: center;
+  font-size: 12px;
+}
+
+form img {
+  width: 70px;
+  height: 70px;
+}
