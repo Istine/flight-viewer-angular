@@ -10,6 +10,10 @@ import { FlightsService } from 'src/app/services/flights.service';
 export class DashboardComponent implements OnInit {
   @ViewChild('sidenav')
   sidenav!: MatSidenav;
+  fourHoursBefore: string = new Date(Date.now() - 13200000).toUTCString();
+  fiveHoursBefore: string = new Date(Date.now() - 16800000).toUTCString();
+
+  data: any[] = [];
 
   constructor(private http: FlightsService) {}
 
@@ -17,5 +21,20 @@ export class DashboardComponent implements OnInit {
     this.sidenav.close();
   }
 
-  ngOnInit(): void {}
+  convertStringTimeToEpoch2 = (time: string) => {
+    const newDate = `${time}`;
+    const epoch = new Date(newDate).getTime();
+    return epoch / 1000;
+  };
+
+  ngOnInit(): void {
+    this.http
+      .getFilghts({
+        start: this.convertStringTimeToEpoch2(this.fiveHoursBefore),
+        end: this.convertStringTimeToEpoch2(this.fourHoursBefore),
+      })
+      .subscribe((res) => {
+        this.data = res;
+      });
+  }
 }
