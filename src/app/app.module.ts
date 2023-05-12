@@ -14,6 +14,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import { RouterModule, Routes } from '@angular/router';
 import { FlightsService } from './services/flights.service';
@@ -33,6 +34,7 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
+    MatProgressBarModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
     FormsModule,

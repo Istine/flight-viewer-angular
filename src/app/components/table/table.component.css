@@ -11,3 +11,8 @@ td,
 th {
   width: auto;
 }
+
+.full-width {
+  min-width: 435px;
+  margin: 0;
+}
