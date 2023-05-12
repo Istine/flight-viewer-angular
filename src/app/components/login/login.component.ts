@@ -22,14 +22,16 @@ export class LoginComponent {
   }
 
   onSubmit() {
+    console.log('yes');
+
     if (this.email.valid || this.password.valid) {
       if (
         this.email.value === 'admin@mail.com' &&
         this.password.value === 'admin'
-      )
-        this.route.navigate(['/', 'dashboard']);
-      else {
+      ) {
         localStorage.setItem('isLoggedIn', JSON.stringify(true));
+        this.route.navigateByUrl('/dashboard');
+      } else {
         this.authErrors = 'incorrect email or password';
       }
     }

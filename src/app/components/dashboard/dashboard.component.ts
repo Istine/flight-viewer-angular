@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { MatSidenav } from '@angular/material/sidenav';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 import { FlightsService } from 'src/app/services/flights.service';
 
 @Component({
@@ -20,7 +21,7 @@ export class DashboardComponent implements OnInit {
   end: FormControl = new FormControl('', [Validators.required]);
   loading: boolean = false;
 
-  constructor(private http: FlightsService) {}
+  constructor(private http: FlightsService, private router: Router) {}
 
   close(reason: string) {
     this.sidenav.close();
@@ -78,8 +79,11 @@ export class DashboardComponent implements OnInit {
   getFlights() {
     if (this.begin.valid && this.end.valid) {
       this.openSkyAPI(this.begin.value, this.end.value);
-    } else {
-      alert('error');
     }
+  }
+
+  logout() {
+    localStorage.setItem('isLoggedIn', JSON.stringify(false));
+    this.router.navigateByUrl('/');
   }
 }
