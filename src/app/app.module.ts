@@ -19,10 +19,15 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { RouterModule, Routes } from '@angular/router';
 import { FlightsService } from './services/flights.service';
 import { TableComponent } from './components/table/table.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
-  { path: 'dashboard', component: DashboardComponent },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
@@ -48,7 +53,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [FlightsService],
+  providers: [FlightsService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
