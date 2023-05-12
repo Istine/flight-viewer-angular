@@ -12,6 +12,7 @@ export class LoginComponent {
 
   email = new FormControl('', [Validators.required, Validators.email]);
   password = new FormControl('', [Validators.required]);
+  authErrors: string = '';
 
   getErrorMessage() {
     if (this.email.hasError('required')) {
@@ -21,7 +22,16 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    if (this.email.valid || this.password.valid)
-      this.route.navigate(['/', 'dashboard']);
+    if (this.email.valid || this.password.valid) {
+      if (
+        this.email.value === 'admin@mail.com' &&
+        this.password.value === 'admin'
+      )
+        this.route.navigate(['/', 'dashboard']);
+      else {
+        localStorage.setItem('isLoggedIn', JSON.stringify(true));
+        this.authErrors = 'incorrect email or password';
+      }
+    }
   }
 }

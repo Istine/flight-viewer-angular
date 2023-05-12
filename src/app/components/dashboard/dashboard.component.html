@@ -11,6 +11,12 @@
         <button mat-button (click)="sidenav.open()">
     <mat-icon aria-hidden="false"  aria-label="menu icon" fontIcon="menu" class="menu-icon"></mat-icon>
         </button></nav>
-        <app-table></app-table>
+        <div class="table-container">
+          <div class="wrapper">
+        <app-table
+            [dataSource]="data"
+        ></app-table>
+      </div>
+      </div>
   </mat-sidenav-content>
 </mat-sidenav-container>

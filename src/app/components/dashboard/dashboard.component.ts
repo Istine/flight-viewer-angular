@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+import { MatTableDataSource } from '@angular/material/table';
 import { FlightsService } from 'src/app/services/flights.service';
 
 @Component({
@@ -12,8 +13,7 @@ export class DashboardComponent implements OnInit {
   sidenav!: MatSidenav;
   fourHoursBefore: string = new Date(Date.now() - 13200000).toUTCString();
   fiveHoursBefore: string = new Date(Date.now() - 16800000).toUTCString();
-
-  data: any[] = [];
+  data!: MatTableDataSource<any>;
 
   constructor(private http: FlightsService) {}
 
@@ -27,6 +27,18 @@ export class DashboardComponent implements OnInit {
     return epoch / 1000;
   };
 
+  formatTime = (time: number) => {
+    return (
+      new Date(time * 1000).toLocaleString('en-US', {
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: true,
+        timeZone: 'GMT',
+      }) + '  GMT'
+    );
+  };
+
   ngOnInit(): void {
     this.http
       .getFilghts({
@@ -34,7 +46,14 @@ export class DashboardComponent implements OnInit {
         end: this.convertStringTimeToEpoch2(this.fourHoursBefore),
       })
       .subscribe((res) => {
-        this.data = res;
+        const response = res.map((record) => ({
+          flight: record.callsign,
+          departureAirport: record.estDepartureAirport,
+          departureTime: this.formatTime(record.firstSeen),
+          arrivalAirport: record.estArrivalAirport,
+          arrivalTime: this.formatTime(record.lastSeen),
+        }));
+        this.data = new MatTableDataSource(response);
       });
   }
 }

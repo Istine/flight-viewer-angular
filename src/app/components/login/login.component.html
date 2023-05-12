@@ -2,6 +2,9 @@
     <img src="../assets/airplane.png" alt="airplane logo" />
     <h1>Welcome aboard!</h1>
     <p> Please enter your login details to access the latest flight data</p>
+    <mat-error *ngIf="authErrors">
+      {{authErrors}}
+    </mat-error>
     <mat-form-field class="full-width">
         <mat-label>Email</mat-label>
         <input class="input-control" type="email" matInput [formControl] = "email" placeholder="Ex. pat@example.com">

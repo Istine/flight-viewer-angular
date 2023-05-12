@@ -56,3 +56,14 @@
 .text-red {
   color: red;
 }
+
+.table-container {
+  width: 100%;
+  padding: 1rem 0;
+  display: grid;
+  justify-items: center;
+}
+
+.table-container .wrapper {
+  width: 90%;
+}
