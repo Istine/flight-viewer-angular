@@ -16,4 +16,4 @@ This is an app for searching and viewing airport flights information.
 
 ## link to live site
 
-### https://645f27db23d90c0737c69953--tangerine-croquembouche-04ad88.netlify.app/
+### https://645f3661ef063b11bd9ff25c--gilded-moonbeam-309d90.netlify.app/
