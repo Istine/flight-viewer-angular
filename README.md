@@ -1,27 +1,19 @@
-# FlightViewerAngular
+# Flights Information Viewer Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
+This is an app for searching and viewing airport flights information.
 
-## Development server
+## Setup procedure:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- clone the repo with **https://github.com/Istine/flight-viewer-angular.git**
 
-## Code scaffolding
+- Go into the cloned repo directory and run npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- Run npm run dev to start the development server
 
-## Build
+- Go to your browser and type in http://localhost:4200 and you show see the login page
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- The login credentials are email: admin@mail.com and password: admin
 
-## Running unit tests
+## link to live site
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### https://precious-swan-31f395.netlify.app/

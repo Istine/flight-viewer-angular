@@ -90,10 +90,6 @@ form span {
   margin: 0 50px;
 }
 
-.full-width {
-  width: 100%;
-}
-
 @media screen and (max-width: 600px) {
   form {
     width: 100%;

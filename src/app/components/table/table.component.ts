@@ -11,39 +11,6 @@ export interface UserData {
   arrivalTime: string;
 }
 
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
-
 /**
  * @title Data table with sorting, pagination, and filtering.
  */
@@ -60,7 +27,15 @@ export class TableComponent implements OnChanges {
     'arrivalAirport',
     'arrivalTime',
   ];
-  @Input() dataSource: MatTableDataSource<UserData> = new MatTableDataSource();
+  @Input() dataSource: MatTableDataSource<UserData> = new MatTableDataSource([
+    {
+      flight: '',
+      departureAirport: '',
+      departureTime: '',
+      arrivalAirport: '',
+      arrivalTime: '',
+    },
+  ]);
 
   @ViewChild(MatPaginator)
   paginator!: MatPaginator;
