@@ -1,0 +1,30 @@
+.docs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  justify-content: center;
+  width: 100%;
+  min-width: 400px;
+  min-height: 100vh;
+}
+
+.docs p {
+  margin: 0;
+  width: auto;
+  font-size: 14px;
+}
+
+.docs span {
+  font-weight: 700;
+}
+
+.docs button {
+  width: 120px;
+  background-color: #420da5;
+  color: whitesmoke;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 0.5rem 0;
+}

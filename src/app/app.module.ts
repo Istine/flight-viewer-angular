@@ -20,6 +20,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FlightsService } from './services/flights.service';
 import { TableComponent } from './components/table/table.component';
 import { AuthGuard } from './guards/auth.guard';
+import { DocsComponent } from './components/docs/docs.component';
 
 const appRoutes: Routes = [
   { path: '', component: LoginComponent },
@@ -28,6 +29,7 @@ const appRoutes: Routes = [
     component: DashboardComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'docs', component: DocsComponent },
 ];
 
 @NgModule({
@@ -36,6 +38,7 @@ const appRoutes: Routes = [
     LoginComponent,
     DashboardComponent,
     TableComponent,
+    DocsComponent,
   ],
   imports: [
     BrowserModule,
